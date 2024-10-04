@@ -35,4 +35,6 @@ dotnet run --project WordFinder.ConsoleApp
 ```
 
 # Run Tests
+```
 dotnet test
+```
