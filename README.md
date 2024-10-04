@@ -30,6 +30,9 @@ Due to the size of the word stream, the code should be implemented in a high per
 ```
 git clone https://github.com/luke92/word-finder-net.git
 cd word-finder-net
-cd WordFinderConsoleApp
-dotnet run
+dotnet build
+dotnet run --project WordFinder.ConsoleApp
 ```
+
+# Run Tests
+dotnet test
