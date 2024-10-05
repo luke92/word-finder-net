@@ -9,10 +9,7 @@ public class SimpleUnitTest
     [TestMethod]
     public void TestGetMessage()
     {
-        // Act: Call the method from the Logic project
         var result = FakeClass.GetMessage();
-
-        // Assert: Verify that the method returns the expected result
         Assert.AreEqual("Hello from the Business Logic!", result);
     }
 }
