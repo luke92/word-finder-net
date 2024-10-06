@@ -1,6 +1,6 @@
-﻿namespace WordFinder.ConsoleApp;
+﻿namespace WordFinderApp.ConsoleApp;
 
-using WordFinder.Logic;
+using WordFinderApp.Logic;
 
 class Program
 {

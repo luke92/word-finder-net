@@ -1,4 +1,4 @@
-﻿namespace WordFinder.Logic;
+﻿namespace WordFinderApp.Logic;
 
 public class FakeClass
 {

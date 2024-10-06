@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\WordFinder.Logic\WordFinder.Logic.csproj" />
+    <ProjectReference Include="..\WordFinderApp.Logic\WordFinderApp.Logic.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

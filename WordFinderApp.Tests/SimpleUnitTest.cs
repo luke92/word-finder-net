@@ -1,7 +1,7 @@
-namespace WordFinder.Tests;
+namespace WordFinderApp.Tests;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WordFinder.Logic;
+using WordFinderApp.Logic;
 
 [TestClass]
 public class SimpleUnitTest

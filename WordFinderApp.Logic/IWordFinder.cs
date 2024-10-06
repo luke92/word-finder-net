@@ -1,6 +1,6 @@
 using System;
 
-namespace WordFinder.Logic
+namespace WordFinderApp.Logic
 {
     public interface IWordFinder
     {

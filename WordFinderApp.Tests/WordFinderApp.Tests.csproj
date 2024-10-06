@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WordFinder.Logic\WordFinder.Logic.csproj" />
+    <ProjectReference Include="..\WordFinderApp.Logic\WordFinderApp.Logic.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder.ConsoleApp", "WordFinder.ConsoleApp\WordFinder.ConsoleApp.csproj", "{2C49F333-95F0-4E68-A4D9-4A5E796747FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderApp.ConsoleApp", "WordFinderApp.ConsoleApp\WordFinderApp.ConsoleApp.csproj", "{2C49F333-95F0-4E68-A4D9-4A5E796747FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder.Tests", "WordFinder.Tests\WordFinder.Tests.csproj", "{2E9621C6-ED37-468F-BD53-548C473915E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderApp.Tests", "WordFinderApp.Tests\WordFinderApp.Tests.csproj", "{2E9621C6-ED37-468F-BD53-548C473915E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder.Logic", "WordFinder.Logic\WordFinder.Logic.csproj", "{E793B397-E68F-4E7E-8C52-C9BEF71CE9B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderApp.Logic", "WordFinderApp.Logic\WordFinderApp.Logic.csproj", "{E793B397-E68F-4E7E-8C52-C9BEF71CE9B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
