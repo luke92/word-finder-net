@@ -26,6 +26,10 @@ The WordFinder constructor receives a set of strings which represents a characte
 
 Due to the size of the word stream, the code should be implemented in a high performance fashion both in terms of efficient algorithm and utilization of system resources. Where possible, please include your analysis and evaluation.
 
+# Requisites
+- Git
+- Net 7
+
 # Run program
 ```
 git clone https://github.com/luke92/word-finder-net.git
@@ -38,3 +42,11 @@ dotnet run --project WordFinderApp.ConsoleApp
 ```
 dotnet test
 ```
+
+# Implementation Considerations
+- The program is designed to have no more than 64 rows and/or more than 64 columns (If any of them are exceeded, an exception is thrown)
+- It supports the possibility that the matrix is ​​not square, that is, that the number of rows is different from the number of columns
+- It saves in memory the rows and columns of the provided matrix, so that the `Find()` method can be used more than once if necessary, allowing the second time that `Find()` is executed to take less time to process the results
+- As the rows of the matrix are traversed, the matches are searched for and the columns are created, to avoid traversing the lists more than once
+- The technical decisions taken are based on the fact that when using IEnumerable we are not sure, for example, that the Count() method has O(1) or O(n) complexity
+- The same occurs with the construction of rows and columns, the technical decision is based on whether it is decided to remove the 64x64 size limitation and we had to process A 10000x10000 matrix has a smaller number of operations when building rows and columns at a time.

@@ -2,7 +2,7 @@
 
 using WordFinderApp.Logic;
 
-class Program
+static class Program
 {
     static void Main(string[] args)
     {
