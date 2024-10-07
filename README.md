@@ -1,3 +1,5 @@
+[![.NET](https://github.com/luke92/word-finder-net/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/luke92/word-finder-net/actions/workflows/dotnet.yml)
+
 # word-finder-net
 Word Finder develop in NET
 
