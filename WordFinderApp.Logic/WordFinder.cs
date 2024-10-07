@@ -9,26 +9,27 @@ namespace WordFinderApp.Logic
     {
         private const int MAX_COLUMNS_ALLOWED = 64;
         private const int MAX_ROWS_ALLOWED = 64;
-        private int _columns = 0;
-        private List<string> _matrixRows;
-        private List<StringBuilder> _matrixColumns;
+        private readonly int _columns = 0;
+        private readonly List<string> _matrixRows;
+        private readonly List<StringBuilder> _matrixColumns;
         private bool wasMatrixIterated;
-        private IEnumerable<string> _matrix;
+        private readonly IEnumerable<string> _matrix;
         public WordFinder(IEnumerable<string> matrix)
         {
             _matrix = matrix;
             _matrixRows = new List<string>();
+            _matrixColumns = new List<StringBuilder>();
 
             if (matrix == null)
             {
-                throw new ArgumentNullException("Matrix cannot be null");
+                throw new ArgumentNullException(nameof(matrix), "Matrix cannot be null");
             }
 
             foreach (var row in matrix)
             {
                 if (row == null)
                 {
-                    throw new ArgumentNullException("Row cannot be null");
+                    throw new ArgumentNullException(nameof(row), "Row cannot be null");
                 }
 
                 if (_columns == 0)
@@ -49,10 +50,10 @@ namespace WordFinderApp.Logic
             }
         }
 
-        public IEnumerable<string> Find(IEnumerable<string> wordstream)
+        public IEnumerable<string> Find(IEnumerable<string> wordStream)
         {
             var wordMap = new Dictionary<string, int>();
-            var wordSetStream = new HashSet<string>(wordstream?.Where(
+            var wordSetStream = new HashSet<string>(wordStream?.Where(
                 word => !string.IsNullOrWhiteSpace(word)).Select(word => word.ToLowerInvariant()) ??
                 Enumerable.Empty<string>()
             );
@@ -75,10 +76,10 @@ namespace WordFinderApp.Logic
                 SearchMatches(wordMap, columnInMatrix.ToString(), wordSetStream);
             }
 
-            return this.GetMoreRepeatedWords(wordMap, 10);
+            return GetMoreRepeatedWords(wordMap, 10);
         }
 
-        private void IterateFirstTimeRows(Dictionary<string, int>? wordMap, HashSet<string>? wordSetStream)
+        private void IterateFirstTimeRows(Dictionary<string, int> wordMap, HashSet<string> wordSetStream)
         {
             InitializeColumns();
 
@@ -100,7 +101,6 @@ namespace WordFinderApp.Logic
 
         private void InitializeColumns()
         {
-            _matrixColumns = new List<StringBuilder>();
             for (var column = 0; column < _columns; column++)
             {
                 _matrixColumns.Add(new StringBuilder());

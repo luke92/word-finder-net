@@ -7,8 +7,8 @@ namespace WordFinderApp.Tests
     [TestClass]
     public class WordFinderTests
     {
-        private IWordFinder _service;
-        private void InitializeService(IEnumerable<string> matrix)
+        private IWordFinder? _service;
+        private void InitializeService(IEnumerable<string>? matrix)
         {
             _service = new WordFinder(matrix);
         }
@@ -45,16 +45,16 @@ namespace WordFinderApp.Tests
         public void TestFindWithNullWordStream()
         {
             InitializeService(new List<string> { "apples", "banana", "cherry" });
-            var foundWords = _service.Find(null);
-            Assert.AreEqual(0, foundWords.Count());
+            var foundWords = _service?.Find(null);
+            Assert.AreEqual(0, foundWords?.Count());
         }
 
         [TestMethod]
         public void TestFindWithEmptyWordsInWordStream()
         {
             InitializeService(new List<string> { "apples", "banana", "cherry" });
-            var foundWords = _service.Find(new List<string> { "", null });
-            Assert.AreEqual(0, foundWords.Count());
+            var foundWords = _service?.Find(new List<string> { "", null });
+            Assert.AreEqual(0, foundWords?.Count());
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace WordFinderApp.Tests
                 "pqnsd",
                 "uvdxy"
             });
-            var foundWords = _service.Find(new List<string>
+            var foundWords = _service?.Find(new List<string>
             {
                 "cold",
                 "wind",
@@ -82,7 +82,7 @@ namespace WordFinderApp.Tests
                 "wind",
                 "cold"
             };
-            Assert.IsTrue(foundWords.SequenceEqual(expected));
+            Assert.IsTrue(foundWords?.SequenceEqual(expected));
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace WordFinderApp.Tests
                 "nrrhzdmelonezbbuvjud",
                 "ajyisiwmrproilpkirhh"
             });
-            var foundWords = _service.Find(new List<string>
+            var foundWords = _service?.Find(new List<string>
             {
                 "apple",
                 "orange",
@@ -135,7 +135,7 @@ namespace WordFinderApp.Tests
                 "apple",
             };
 
-            Assert.IsTrue(foundWords.Count() == 10);
+            Assert.IsTrue(foundWords?.Count() == 10);
             Assert.IsTrue(foundWords.SequenceEqual(expected));
         }
     }
