@@ -38,7 +38,7 @@ git clone https://github.com/luke92/word-finder-net.git
 cd word-finder-net
 dotnet restore
 dotnet build
-dotnet run --project WordFinderApp.ConsoleApp"<matrix>" "<wordstream>"
+dotnet run --project WordFinderApp.ConsoleApp "<matrix>" "<wordstream>"
 Example: dotnet run --project WordFinderApp.ConsoleApp "hello,world,apple" "hello,apple,ode"
 ```
 
