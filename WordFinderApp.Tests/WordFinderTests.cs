@@ -8,6 +8,7 @@ namespace WordFinderApp.Tests
     public class WordFinderTests
     {
         private IWordFinder? _service;
+        private readonly string _longString = "rdyayfvpcybanlryqpvlpmdjfscgwedehcststiirskbszhfufqdnmgmkieowwvga";
         private void InitializeService(IEnumerable<string>? matrix)
         {
             _service = new WordFinder(matrix);
@@ -38,7 +39,20 @@ namespace WordFinderApp.Tests
         [ExpectedException(typeof(ArgumentException), "The matrix cannot have more than 64 columns")]
         public void TestMatrixFirstRowWithMoreColumnsThanAllowed()
         {
-            InitializeService(new List<string> { "rdyayfvpcybanlryqpvlpmdjfscgwedehcststiirskbszhfufqdnmgmkieowwvga" });
+            InitializeService(new List<string> { _longString });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "The matrix cannot have more than 64 rows")]
+        public void TestMatrixWithMoreRowsThanAllowed()
+        {
+            var list = new List<string>();
+            foreach (var character in _longString)
+            {
+                list.Add(character.ToString());
+            }
+            InitializeService(list);
+            _service?.Find(new List<string>{ "ab" });
         }
 
         [TestMethod]
@@ -86,6 +100,42 @@ namespace WordFinderApp.Tests
         }
 
         [TestMethod]
+        public void TestFindWithTwoWordStreams()
+        {
+            InitializeService(new List<string>
+            {
+                "abcdc",
+                "fgwio",
+                "chill",
+                "pqnsd",
+                "uvdxy"
+            });
+            var foundWords = _service?.Find(new List<string>
+            {
+                "cold",
+                "wind",
+            });
+
+            IEnumerable<string> expected = new[]
+            {
+                "wind",
+                "cold"
+            };
+            Assert.IsTrue(foundWords?.SequenceEqual(expected));
+
+            var foundWords2 = _service?.Find(new List<string>
+            {
+                "snow",
+                "chill"
+            });
+            IEnumerable<string> expected2 = new[]
+            {
+                "chill",
+            };
+            Assert.IsTrue(foundWords2?.SequenceEqual(expected2));
+        }
+
+        [TestMethod]
         public void TestFindWithWordRepeatedAnd10MostRepeatedWords()
         {
             InitializeService(new List<string>
@@ -118,7 +168,8 @@ namespace WordFinderApp.Tests
                 "kiwi",
                 "pear",
                 "lemon",
-                "jpg"
+                "jpg",
+                "ajyisiwmrproilpkirhhh"
             });
 
             IEnumerable<string> expected = new[]
